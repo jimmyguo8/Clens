@@ -5,6 +5,7 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+Assets/SpeechSDK/
 # Visual Studio cache directory
 .vs/
 
