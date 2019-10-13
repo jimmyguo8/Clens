@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Microsoft.CognitiveServices.Speech;
+using Microsoft.MixedReality.Toolkit.UI;
 
 public class HelloWorld : MonoBehaviour
 {
     // Hook up the three properties below with a Text, InputField and Button object in your UI.
     public InputField inputField;
-    public Button speakButton;
+    public PressableButtonHoloLens2 speakButton;
     public AudioSource audioSource;
 
     private object threadLocker = new object();
@@ -81,7 +82,7 @@ public class HelloWorld : MonoBehaviour
             // Continue with normal initialization, Text, InputField and Button objects are present.
             inputField.text = "Enter text you wish spoken here.";
             message = "Click button to synthesize speech";
-            speakButton.onClick.AddListener(ButtonClick);
+            speakButton.GetComponent<Interactable>().OnClick.AddListener(ButtonClick);
 
             // Creates an instance of a speech config with specified subscription key and service region.
             // Replace with your own subscription key and service region (e.g., "westus").
@@ -104,7 +105,7 @@ public class HelloWorld : MonoBehaviour
         {
             if (speakButton != null)
             {
-                speakButton.interactable = !waitingForSpeak;
+                speakButton.GetComponent<Interactable>().IsEnabled = !waitingForSpeak;
             }
 
         }
@@ -114,4 +115,5 @@ public class HelloWorld : MonoBehaviour
     {
         synthesizer.Dispose();
     }
+
 }

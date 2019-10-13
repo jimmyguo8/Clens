@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Microsoft.CognitiveServices.Speech;
+using Microsoft.MixedReality.Toolkit.UI;
 #if PLATFORM_ANDROID
 using UnityEngine.Android;
 #endif
@@ -13,7 +14,7 @@ public class SpeechToText : MonoBehaviour
 {
     // Hook up the two properties below with a Text and Button object in your UI.
     public Text outputText;
-    public Button startRecoButton;
+    public PressableButtonHoloLens2 startRecoButton;
 
     private object threadLocker = new object();
     private bool waitingForReco;
@@ -50,10 +51,11 @@ public class SpeechToText : MonoBehaviour
             var result = await recognizer.RecognizeOnceAsync().ConfigureAwait(false);
 
             // Checks result.
-            string newMessage = string.Empty;
+            message = outputText.text;
+            string newMessage = message;
             if (result.Reason == ResultReason.RecognizedSpeech)
             {
-                newMessage = result.Text;
+                newMessage += result.Text;
             }
             else if (result.Reason == ResultReason.NoMatch)
             {
@@ -104,7 +106,7 @@ public class SpeechToText : MonoBehaviour
             micPermissionGranted = true;
             message = "Click button to recognize speech";
 #endif
-            startRecoButton.onClick.AddListener(ButtonClick);
+            startRecoButton.GetComponent<Interactable>().OnClick.AddListener(ButtonClick);
         }
     }
 
@@ -128,7 +130,7 @@ public class SpeechToText : MonoBehaviour
         {
             if (startRecoButton != null)
             {
-                startRecoButton.interactable = !waitingForReco && micPermissionGranted;
+                startRecoButton.GetComponent<Interactable>().IsEnabled = !waitingForReco && micPermissionGranted;
             }
             if (outputText != null)
             {
