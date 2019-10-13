@@ -264,6 +264,11 @@ PrefabInstance:
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6360865084530143255, guid: 4e7abe5a6db0abc43be532eead7ba806,
+        type: 3}
+      propertyPath: voiceRequiresFocus
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4541138718259318586, guid: 4e7abe5a6db0abc43be532eead7ba806,
         type: 3}
       propertyPath: m_Mesh
@@ -426,7 +431,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &234361016
 RectTransform:
@@ -440,7 +445,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1452628926}
-  - {fileID: 831883197}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -832,7 +836,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 4e-45}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -878,17 +882,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831883196}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.063}
+  m_LocalPosition: {x: 0, y: 0, z: 0.006000001}
   m_LocalScale: {x: 0.0028027894, y: 0.0028027894, z: 0.0028027894}
   m_Children: []
-  m_Father: {fileID: 234361016}
-  m_RootOrder: 1
+  m_Father: {fileID: 6497819335582654036}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -376.43567, y: -139.836}
-  m_SizeDelta: {x: 240, y: 120}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.014, y: 0.098}
+  m_SizeDelta: {x: 81.5621, y: 40.7811}
+  m_Pivot: {x: 0.5381082, y: 0.5}
 --- !u!114 &831883198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,7 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1263,6 +1267,7 @@ GameObject:
   - component: {fileID: 1452628927}
   - component: {fileID: 1452628931}
   - component: {fileID: 1452628930}
+  - component: {fileID: 1452628932}
   m_Layer: 5
   m_Name: InputField
   m_TagString: Untagged
@@ -1278,7 +1283,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452628925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.224}
   m_LocalScale: {x: 0.00334667, y: 0.00334667, z: 0.00334667}
   m_Children:
   - {fileID: 1769007138}
@@ -1429,8 +1434,8 @@ MonoBehaviour:
   smoothing: 1
   lifetime: 0
   referenceDirection: 1
-  minDistance: 1
-  maxDistance: 2
+  minDistance: 2
+  maxDistance: 4
   minViewDegrees: 0
   maxViewDegrees: 0
   aspectV: 1
@@ -1439,6 +1444,19 @@ MonoBehaviour:
   useFixedVerticalPosition: 1
   fixedVerticalPosition: -0.2
   orientToReferenceDirection: 0
+--- !u!65 &1452628932
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452628925}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 150, y: 30, z: 20}
+  m_Center: {x: 0, y: 0, z: 0.00000010435626}
 --- !u!114 &1572711207 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4406797679346460454, guid: 4e7abe5a6db0abc43be532eead7ba806,
@@ -1725,14 +1743,14 @@ MonoBehaviour:
   lifetime: 0
   referenceDirection: 1
   minDistance: 0.5
-  maxDistance: 1
+  maxDistance: 2
   minViewDegrees: 0
-  maxViewDegrees: 30
+  maxViewDegrees: 15
   aspectV: 1
   ignoreAngleClamp: 0
   ignoreDistanceClamp: 0
   useFixedVerticalPosition: 0
-  fixedVerticalPosition: 0
+  fixedVerticalPosition: 1
   orientToReferenceDirection: 0
 --- !u!114 &69439548997930492
 MonoBehaviour:
@@ -3014,12 +3032,13 @@ Transform:
   m_GameObject: {fileID: 7545364181610372553}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -493.81, y: -176.336, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8195971257658612454}
   - {fileID: 2973119454151955222}
   - {fileID: 9185878736766282126}
   - {fileID: 8760023851780901045}
+  - {fileID: 831883197}
   m_Father: {fileID: 1749518584}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -80,7 +80,7 @@ public class HelloWorld : MonoBehaviour
         else
         {
             // Continue with normal initialization, Text, InputField and Button objects are present.
-            inputField.text = "Enter text you wish spoken here.";
+            inputField.text = "Hello, how are you?";
             message = "Click button to synthesize speech";
             speakButton.GetComponent<Interactable>().OnClick.AddListener(ButtonClick);
 
