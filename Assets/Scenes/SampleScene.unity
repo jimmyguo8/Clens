@@ -238,7 +238,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 234361018}
+      objectReference: {fileID: 234361019}
     - target: {fileID: 6360865084530143255, guid: 4e7abe5a6db0abc43be532eead7ba806,
         type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 234361013}
   - component: {fileID: 234361017}
   - component: {fileID: 234361018}
+  - component: {fileID: 234361019}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -461,6 +462,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outputText: {fileID: 831883198}
   startRecoButton: {fileID: 130529826}
+--- !u!114 &234361019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234361012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b750569781305488944020cb86ab38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outputText: {fileID: 831883198}
+  recoButton: {fileID: 130529826}
 --- !u!1001 &370771925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -732,7 +747,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.9721523e-31, y: 1.6155871e-27, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
