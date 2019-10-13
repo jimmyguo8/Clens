@@ -73,7 +73,7 @@ public class SpeechToTextCont : MonoBehaviour
             if (outputText != null)
             {
                 //UnityEngine.Debug.Log("Recording");
-                outputText.text = outputText.text + " " + message;
+                outputText.text =  message;
             }
         }
     }

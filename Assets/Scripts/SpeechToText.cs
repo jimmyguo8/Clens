@@ -104,7 +104,7 @@ public class SpeechToText : MonoBehaviour
             }
 #else
             micPermissionGranted = true;
-            message = "Click button to recognize speech";
+            //message = "Click button to recognize speech";
 #endif
             startRecoButton.GetComponent<Interactable>().OnClick.AddListener(ButtonClick);
         }
@@ -134,7 +134,7 @@ public class SpeechToText : MonoBehaviour
             }
             if (outputText != null)
             {
-                outputText.text = message;
+                //outputText.text = message;
             }
         }
     }
