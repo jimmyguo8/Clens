@@ -51,8 +51,8 @@ public class SpeechToText : MonoBehaviour
             var result = await recognizer.RecognizeOnceAsync().ConfigureAwait(false);
 
             // Checks result.
-            message = outputText.text;
-            string newMessage = message;
+            
+            string newMessage = outputText.text;
             if (result.Reason == ResultReason.RecognizedSpeech)
             {
                 newMessage += result.Text;
