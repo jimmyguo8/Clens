@@ -5,7 +5,6 @@ using Microsoft.CognitiveServices.Speech;
 public class HelloWorld : MonoBehaviour
 {
     // Hook up the three properties below with a Text, InputField and Button object in your UI.
-    public Text outputText;
     public InputField inputField;
     public Button speakButton;
     public AudioSource audioSource;
@@ -66,11 +65,8 @@ public class HelloWorld : MonoBehaviour
 
     void Start()
     {
-        if (outputText == null)
-        {
-            UnityEngine.Debug.LogError("outputText property is null! Assign a UI Text element to it.");
-        }
-        else if (inputField == null)
+        
+        if (inputField == null)
         {
             message = "inputField property is null! Assign a UI InputField element to it.";
             UnityEngine.Debug.LogError(message);
@@ -111,10 +107,6 @@ public class HelloWorld : MonoBehaviour
                 speakButton.interactable = !waitingForSpeak;
             }
 
-            if (outputText != null)
-            {
-                outputText.text = message;
-            }
         }
     }
 
